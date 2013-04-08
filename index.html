@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chat with JSON!</title>
+    <link href="assets/css/libs/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/libs/font-awesome.css" rel="stylesheet">
+    <script src="assets/js/libs/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="assets/js/libs/underscore-min.js" type="text/javascript"></script>
+    <script src="assets/js/libs/highcharts-2.3.3.js" type="text/javascript"></script>
+    <script src="assets/js/libs/angular-1.0.2.min.js" type="text/javascript"></script>
+    <script src="assets/js/app.js" type="text/javascript"></script>
+  </head>
+  <body ng-app="chart">
+    <div id="main" ng-controller="chartController">
+      <div>
+        <input type="range" ng-model="averagedemand" min="0" max="100000"><label>{{averagedemand}}</label>
+        <input type="range" ng-model="valueperunit" min="0" max="1" step=".1"><label>{{valueperunit}}%</label>
+        <input type="range" ng-model="obsolescense" min="0" max="1" step=".1"><label>{{obsolescense}}%</label>
+        <button ng-click="calcAndUpdateChart()">Calculate</button>
+      </div>
+      <saving-chart mck-series="series" mck-categories="categories">
+
+      </saving-chart>
+      <div id="chart">
+      </div>
+    </div>
+  </body>
+</html>
