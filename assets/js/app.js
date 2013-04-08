@@ -8,7 +8,6 @@ main.directive('savingChart', function(){
 
 		},
 		link: function(scope, element, attrs){
-			//attrs["mck-series"];
 			console.log(scope["categories"]);
 			console.log(scope);
 			scope.$watch('series', function() {
@@ -42,19 +41,11 @@ function chartController($scope, calculator){
 	$scope.obsolescense = 0;
 	$scope.series={actuals:[], prospects:[]};
 	var reliability = [75, 80, 85, 90, 95, 100];
-	/*$scope.$watch('series', function() {
-	 	updateChart(reliability, $scope.series.actuals, $scope.series.prospects);
-	});
-	*/
 	$scope.categories = reliability;
 
 
 	$scope.calcAndUpdateChart = function(){
-		// prepare 3 series.. one for each percentage involved
 		$scope.series = calculator.getSeries(reliability, $scope.averagedemand, $scope.valueperunit, $scope.obsolescense);
-		
-
-		//updateChart(reliability, actuals, prospects);
 	};
 
 }
